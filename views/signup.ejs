@@ -2,47 +2,42 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/signin.css">
-    <title>Sign up</title>
+    <title>会員登録</title>
+    <link rel="stylesheet" href="/css/teststyle5.css">
 </head>
 <body>
-    <!-- <h1>会員登録をしてください</h1>
-    <form action="/api2/signup" method="post">
-        ユーザ名：<input type="text" name="username"><br>
-        メールアドレス：<input type="text" name="email"><br>
-        パスワード：<input type="password" name="password"><br>
-        <button type="submit">Sign up</button>
-    </form>
-    <form action="/toppage" method="get">
-        <button type="submit">go toppage</button>
-    </form> -->
+    <header>
+        <div class="container">
+            <h1>会員登録</h1>
+            <nav>
+                <ul>
+                    <li><a href="/api/v1">ホーム</a></li>
+                    <li><a href="#">商品</a></li>
+                    <li><a href="#">会社概要</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <div class="login">
-        <div class="login-screen">
-          <div class="app-title">
-            <h1>Sign Up</h1>
-          </div>
-          <form action="/api/v1/signup" name="signup" method="post">
-            <div class="login-form">
-                <div class="control-group">
-                <input type="text" name="username" class="login-field" value="" placeholder="username" id="login-name" >
-                <label class="login-field-icon fui-user" for="login-name"></label>
-                </div>
-                <div class="control-group">
-                    <input type="text" name="email" class="login-field" value="" placeholder="email" id="login-email" >
-                    <label class="login-field-icon fui-user" for="login-name"></label>
-                    </div>
-                <div class="control-group">
-                <input type="password" name="password" class="login-field" value="" placeholder="password" id="login-pass" >
-                <label class="login-field-icon fui-lock" for="login-pass"></label>
-                </div>
-                <a class="btn btn-primary btn-large btn-block"  onclick="document.signup.submit();">Sign Up</a>
-                <a class="login-link" href="/api/v1/" >toppage</a>
-              </div>
-            </div>
-          </form>
-      </div>
+    <main class="container">
+        <section class="form-container">
+            <form action="/api/v1/signup" method="POST" class="register-form">
+                <h2>新規会員登録</h2>
+                <input type="text" name="username" placeholder="ユーザー名" required>
+                <input type="text" name="email" placeholder="メールアドレス" required>
+                <input type="password" name="password" placeholder="パスワード" required>
+                <input type="password" name="confirm_password" placeholder="パスワード確認" required>
+                <button type="submit" class="btn">登録する</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 フーディーショップ. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

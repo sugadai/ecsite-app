@@ -2,15 +2,68 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>マイページ</title>
+    <link rel="stylesheet" href="/css/teststyle7.css">
 </head>
 <body>
-    <h1><%= locals.username %>さん　ログイン中
-    </h1>
-    <form action="/api/v1/logout" method="post">
-        <button type="submit">logout</button>
-    </form>
+    <header>
+        <div class="container">
+            <h1><%= locals.username  %>ページ</h1>
+            <nav>
+                <ul>
+                    <li><a href="/api/v1/userpage">マイページ</a></li>
+                    <li><a href="#">プロフィール</a></li>
+                    <li><a href="/api/v1/password">パスワード変更</a></li>
+                    <li><a href="#">注文履歴</a></li>
+                    <li>
+                        <form name="logout" action="/api/v1/logout" method="post">
+                            <a href="#" onclick="document.logout.submit();">ログアウト</a>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+   
+        <main class="container">
+            <section class="profile-section">
+                <h2>プロフィール情報</h2>
+                <div class="profile-details">
+                    <p><strong>ユーザー名:</strong> <%= locals.username %></p>
+                    <p><strong>メールアドレス:</strong> <%= locals.email %></p>
+                    <p><strong>登録日:</strong> 2024年6月1日</p>
+                </div>
+            </section>
+    
+            <section class="order-history">
+                <h2>注文履歴</h2>
+                <div class="order-list">
+                    <div class="order-item">
+                        <p><strong>注文番号:</strong> #12345</p>
+                        <p><strong>注文日時:</strong> 2024年6月10日 15:30</p>
+                        <p><strong>商品名:</strong> 美味しい料理</p>
+                        <p><strong>価格:</strong> ¥1,299</p>
+                        <p><strong>数量:</strong> 1</p>
+                    </div>
+                    <div class="order-item">
+                        <p><strong>注文番号:</strong> #12346</p>
+                        <p><strong>注文日時:</strong> 2024年6月9日 12:15</p>
+                        <p><strong>商品名:</strong> おいしいスイーツ</p>
+                        <p><strong>価格:</strong> ¥899</p>
+                        <p><strong>数量:</strong> 2</p>
+                    </div>
+                    <!-- 他の注文履歴アイテムも同様に繰り返し表示 -->
+                </div>
+            </section>
+        </main>
+
+    
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 フーディーショップ. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

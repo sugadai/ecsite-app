@@ -2,44 +2,42 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/signin.css">
-    <title>sign in</title>
+    <title>ログイン</title>
+    <link rel="stylesheet" href="/css/teststyle5.css">
 </head>
 <body>
-    <!-- <h1>ログインしてくだい</h1>
-    <form action="/api2/signin" method="post">
-        ユーザ名：<input type="text" name="username"><br>
-        パスワード：<input type="password" name="password"><br>
-        <button type="submit">Sign in</button>
-    </form>
-    <form action="/toppage" method="get">
-        <button type="submit">go toppage</button>
-    </form> -->
+    <header>
+        <div class="container">
+            <h1>ログイン</h1>
+            <nav>
+                <ul>
+                    <li><a href="/api/v1">ホーム</a></li>
+                    <li><a href="#">商品</a></li>
+                    <li><a href="#">会社概要</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <main class="container">
+        <section class="form-container">
+            <form action="/api/v1/signin" method="POST" class="login-form">
+                <h2>ログイン</h2>
+              
+                    <h3><%= locals.error %></h3>
+                <input type="text" name="username" placeholder="ユーザ名" required>
+                <input type="password" name="password" placeholder="パスワード" required>
+                <button type="submit" class="btn">ログインする</button>
+            </form>
+        </section>
+    </main>
 
-    <div class="login">
-        <div class="login-screen">
-          <div class="app-title">
-            <h1>Sign In</h1>
-          </div>
-          <form action="/api/v1//signin" name="signin" method="post">
-            <div class="login-form">
-                <div class="control-group">
-                <input type="text" name="username" class="login-field" value="" placeholder="username" id="login-name" >
-                <label class="login-field-icon fui-user" for="login-name"></label>
-                </div>
-                <div class="control-group">
-                <input type="password" name="password" class="login-field" value="" placeholder="password" id="login-pass" >
-                <label class="login-field-icon fui-lock" for="login-pass"></label>
-                </div>
-                <a class="btn btn-primary btn-large btn-block"  onclick="document.signin.submit();">Sign In</a>
-                <a class="login-link" href="#" >Lost your password?</a>
-                <a class="login-link" href="/api/v1/" >toppage</a>
-              </div>
-            </div>
-          </form>
-      </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 フーディーショップ. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
