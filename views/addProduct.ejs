@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品追加</title>
+    <link rel="stylesheet" href="/css/teststyle5.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><%= locals.username  %>ページ</h1>
+            <nav>
+                <ul>
+                    <li><a href="/api/v1/userpage">マイページ</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                    <li>
+                        <form name="logout" action="/api/v1/logout" method="post">
+                            <a href="#" onclick="document.logout.submit();">ログアウト</a>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="form-container">
+            <form action="/api/v1/addProduct" method="POST" class="change-password-form">
+                <h2>商品追加</h2>
+                <input type="text" name="productname" placeholder="商品名">
+                <input type="text" name="price" placeholder="価格">
+                <input type="text" name="imgpath" placeholder="画像url">
+                <input type="text" name="category_id" placeholder="カテゴリーNo(1:野菜、2:果物)">
+                <button type="submit" class="btn">追加する</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 フーディーショップ. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

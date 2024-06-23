@@ -36,9 +36,13 @@ const SignIn = (req,res) =>{
                 console.log('ログイン成功ユーザーID： '+req.session.userid);
                 req.session.username = result[0].username;
                 req.session.email = result[0].email;
+                if(req.session.userid === 1){
+                    res.redirect('/api/v1/adminpage');
+                } else{
+                    res.redirect(`/api/v1/userpage`);
+                }
                 // console.log(req.session.username)
                 // res.render('userpage.ejs',{username: result[0].username});
-                res.redirect(`/api/v1/userpage`);
             }else{
                 console.log('認証に失敗しました')
                 res.redirect('/api/v1/signin')
@@ -94,7 +98,27 @@ const password = (req,res) => {
         })
 }
 
-module.exports = {SignIn,SignUp,SignOut,password,search}
+//商品追加
+const addProduct = (req,res) =>{
+    // console.log(req.body)
+    const productname =  req.body.productname;
+    const price = req.body.price;
+    const imgpath = req.body.imgpath;
+    const category_id = req.body.category_id;
+    const sql = 'INSERT INTO product(productname,price,imgpath,category_id) value(?,?,?,?);'
+    con.query(
+        sql,
+        [productname,price,imgpath,category_id],
+        (err,result)=>{
+            if(err) throw err
+            console.log('商品追加完了')
+            req.session.addProduct = req.body;
+            console.log(req.session.addProduct)
+            res.redirect('/api/v1/addProductConfirm')
+        })
+}
+
+module.exports = {SignIn,SignUp,SignOut,password,search,addProduct}
 
 
 

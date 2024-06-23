@@ -37,10 +37,15 @@ var SignIn = function SignIn(req, res) {
       req.session.userid = result[0].id;
       console.log('ログイン成功ユーザーID： ' + req.session.userid);
       req.session.username = result[0].username;
-      req.session.email = result[0].email; // console.log(req.session.username)
+      req.session.email = result[0].email;
+
+      if (req.session.userid === 1) {
+        res.redirect('/api/v1/adminpage');
+      } else {
+        res.redirect("/api/v1/userpage");
+      } // console.log(req.session.username)
       // res.render('userpage.ejs',{username: result[0].username});
 
-      res.redirect("/api/v1/userpage");
     } else {
       console.log('認証に失敗しました');
       res.redirect('/api/v1/signin');
@@ -84,6 +89,23 @@ var password = function password(req, res) {
     console.log('パスワード変更完了　ユーザID：' + userid);
     res.redirect("/api/v1/userpage");
   });
+}; //商品追加
+
+
+var addProduct = function addProduct(req, res) {
+  // console.log(req.body)
+  var productname = req.body.productname;
+  var price = req.body.price;
+  var imgpath = req.body.imgpath;
+  var category_id = req.body.category_id;
+  var sql = 'INSERT INTO product(productname,price,imgpath,category_id) value(?,?,?,?);';
+  con.query(sql, [productname, price, imgpath, category_id], function (err, result) {
+    if (err) throw err;
+    console.log('商品追加完了');
+    req.session.addProduct = req.body;
+    console.log(req.session.addProduct);
+    res.redirect('/api/v1/addProductConfirm');
+  });
 };
 
 module.exports = {
@@ -91,7 +113,8 @@ module.exports = {
   SignUp: SignUp,
   SignOut: SignOut,
   password: password,
-  search: search
+  search: search,
+  addProduct: addProduct
 }; // const search = async (req,res) =>{
 //     console.log(req.query.puroduct);
 //     const client_id = `dj00aiZpPUhPVW9ISXpNN3Q0RSZzPWNvbnN1bWVyc2VjcmV0Jng9Mjc-`;

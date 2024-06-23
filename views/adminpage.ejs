@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マイページ</title>
+    <link rel="stylesheet" href="/css/teststyle7.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><%= locals.username  %>ページ</h1>
+            <nav>
+                <ul>
+                    <li><a href="/api/v1/adminpage">マイページ</a></li>
+                    <li><a href="/api/v1/addProduct">商品追加</a></li>
+                    <li><a href="/api/v1/password">パスワード変更</a></li>
+                    <li><a href="#">注文履歴</a></li>
+                    <li>
+                        <form name="logout" action="/api/v1/logout" method="post">
+                            <a href="#" onclick="document.logout.submit();">ログアウト</a>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+   
+        <main class="container">
+            <section class="profile-section">
+                <h2>プロフィール情報</h2>
+                <div class="profile-details">
+                    <p><strong>ユーザー名:</strong> <%= locals.username %></p>
+                    <p><strong>メールアドレス:</strong> <%= locals.email %></p>
+                    <p><strong>登録日:</strong> 2024年6月1日</p>
+                </div>
+            </section>
+
+    
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 フーディーショップ. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

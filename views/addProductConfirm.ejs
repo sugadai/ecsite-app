@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品追加確定</title>
+    <link rel="stylesheet" href="/css/teststyle3.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><%= locals.username %></h1>
+            <nav>
+                <ul>
+                    <li><a href="/api/v1/userpage">マイページ</a></li>
+                    <li><a href="/api/v1/password">パスワード変更</a></li>
+                    <li><a href="#">注文履歴</a></li>
+                    <li>
+                        <form name="logout" action="/api/v1/logout" method="post">
+                            <a href="#" onclick="document.logout.submit();">ログアウト</a>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="confirmation">
+            <div class="confirmation-message">
+                <h2>商品追加が完了しました。</h2>
+                <p>以下の内容をご確認ください。</p>
+            </div>
+            <div class="order-details">
+                <h3>追加内容</h3>
+                <ul><%  %>
+                    <li><strong>商品名:</strong><%= locals.addProduct.productname%> </li>
+                    <li><strong>価格:</strong><%= locals.addProduct.price%></li>
+                    <li><strong>商品画像url</strong><%= locals.addProduct.imgpath %></li>
+                    <li><strong>カテゴリーNo</strong><%= locals.addProduct.category_id%></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 フーディーショップ. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

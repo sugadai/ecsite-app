@@ -38,8 +38,12 @@ app.use((req,res,next)=>{
     }else{
         res.locals.username = req.session.username;
         res.locals.email = req.session.email;
+        if(req.session.addProduct !== undefined){
+            console.log('a')
+            res.locals.addProduct = req.session.addProduct;
+        }
+        console.log(req.session.addProduct);
         console.log('ログイン中ユーザーID'+req.session.userid)
-     
     }
     next();
 })
