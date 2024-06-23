@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>買い物かご</title>
+    <link rel="stylesheet" href="/css/teststyle2.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>買い物かご</h1>
+            <nav>
+                <ul>
+                    <li><a href="/api/v1">ホーム</a></li>
+                    <li><a href="#">商品</a></li>
+                    <li><a href="#">会社概要</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="cart">
+            <h2>買い物かご</h2>
+            <div class="cart-items">
+                <!-- 商品リストは省略 -->
+                    <div class="cart-item">
+                        <img src="product1.jpg" alt="商品1">
+                        <div class="item-details">
+                            <h3>美味しい料理</h3>
+                            <p class="price">¥1,299</p>
+                            <p class="quantity">数量: 1</p>
+                        </div>
+                    </div>
+                    <div class="cart-item">
+                        <img src="product2.jpg" alt="商品2">
+                        <div class="item-details">
+                            <h3>美味しいおやつ</h3>
+                            <p class="price">¥999</p>
+                            <p class="quantity">数量: 2</p>
+                        </div>
+                    </div>
+                    <div class="cart-item">
+                        <img src="product3.jpg" alt="商品3">
+                        <div class="item-details">
+                            <h3>甘いデザート</h3>
+                            <p class="price">¥799</p>
+                            <p class="quantity">数量: 1</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="cart-summary">
+                <!-- 合計金額は省略 -->
+                <a href="#" id="purchaseBtn" class="btn">購入手続きへ進む</a>
+            </div>
+        </section>
+    </main>
+
+    <div id="purchaseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="totalAmount"></p>
+            <button id="confirmPurchase" class="btn">購入を確定する</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 フーディーショップ. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>購入が確定しました。ありがとうございます。</p>
+        </div>
+    </div>
+
+    <script>
+        // 購入ボタンがクリックされたときの処理
+        const purchaseBtn = document.getElementById('purchaseBtn');
+        const purchaseModal = document.getElementById('purchaseModal');
+        const confirmationModal = document.getElementById('confirmationModal');
+        const closeButtons = document.getElementsByClassName('close');
+
+        purchaseBtn.onclick = function() {
+            purchaseModal.style.display = 'block';
+            // 合計金額を計算して表示する（例として簡略化しています）
+            const totalAmount = calculateTotalAmount(); // ここに実際の合計金額計算処理を入れる
+            document.getElementById('totalAmount').textContent = `合計金額: ¥${totalAmount}`;
+        }
+
+        // 購入確定ボタンがクリックされたときの処理
+        const confirmPurchaseBtn = document.getElementById('confirmPurchase');
+        confirmPurchaseBtn.onclick = function() {
+            purchaseModal.style.display = 'none';
+            confirmationModal.style.display = 'block';
+        }
+
+        // モーダルを閉じる処理（×ボタンとモーダル外のクリック）
+        for (let i = 0; i < closeButtons.length; i++) {
+            closeButtons[i].onclick = function() {
+                purchaseModal.style.display = 'none';
+                confirmationModal.style.display = 'none';
+            }
+        }
+
+        window.onclick = function(event) {
+            if (event.target == purchaseModal) {
+                purchaseModal.style.display = 'none';
+            }
+            if (event.target == confirmationModal) {
+                confirmationModal.style.display = 'none';
+            }
+        }
+
+        // 仮の合計金額計算関数（実際のシステムに合わせて適切な処理を実装する）
+        function calculateTotalAmount() {
+            return 3096; // 例として固定の合計金額を返す
+        }
+    </script>
+</body>
+</html>

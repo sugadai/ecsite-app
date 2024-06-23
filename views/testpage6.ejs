@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ログイン</title>
+    <link rel="stylesheet" href="/css/teststyle5.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>ログイン</h1>
+            <nav>
+                <ul>
+                    <li><a href="/api/v1">ホーム</a></li>
+                    <li><a href="#">商品</a></li>
+                    <li><a href="#">会社概要</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="form-container">
+            <form action="/api/v1/signin" method="POST" class="login-form">
+                <h2>ログイン</h2>
+              
+                    <h3><%= locals.error %></h3>
+                <input type="text" name="username" placeholder="ユーザ名" required>
+                <input type="password" name="password" placeholder="パスワード" required>
+                <button type="submit" class="btn">ログインする</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 フーディーショップ. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

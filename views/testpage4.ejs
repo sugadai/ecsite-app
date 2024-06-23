@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>購入履歴</title>
+    <link rel="stylesheet" href="/css/teststyle4.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>マイページ - 購入履歴</h1>
+            <nav>
+                <ul>
+                    <li><a href="/api/v1">ホーム</a></li>
+                    <li><a href="#">プロフィール</a></li>
+                    <li><a href="#">設定</a></li>
+                    <li><a href="#">ログアウト</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="purchase-history">
+            <h2>購入履歴</h2>
+            <div class="purchase-list">
+                <div class="purchase-item">
+                    <div class="purchase-header">
+                        <p>注文番号: <strong>#12345</strong></p>
+                        <p>注文日時: <strong>2024年6月15日 13:30</strong></p>
+                    </div>
+                    <div class="purchase-details">
+                        <ul>
+                            <li><strong>商品名:</strong> 美味しい料理</li>
+                            <li><strong>価格:</strong> ¥1,299</li>
+                            <li><strong>数量:</strong> 1</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="purchase-item">
+                    <div class="purchase-header">
+                        <p>注文番号: <strong>#12346</strong></p>
+                        <p>注文日時: <strong>2024年6月14日 10:45</strong></p>
+                    </div>
+                    <div class="purchase-details">
+                        <ul>
+                            <li><strong>商品名:</strong> おいしいスイーツ</li>
+                            <li><strong>価格:</strong> ¥899</li>
+                            <li><strong>数量:</strong> 2</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 他の購入履歴アイテムも同様に繰り返し表示 -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 フーディーショップ. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

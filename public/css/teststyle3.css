@@ -1,0 +1,80 @@
+/* リセットCSSと共通のスタイルは省略 */
+
+header {
+    background: #333;
+    color: #fff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #e8491d 3px solid;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: right;
+}
+
+header li {
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+header h1 {
+    float: left;
+    display: inline;
+    padding: 0 10px 0 0;
+}
+
+header nav {
+    float: right;
+    margin-top: 10px;
+}
+
+.main-container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.confirmation {
+    margin-top: 20px;
+}
+
+.confirmation-message {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.order-details {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.order-details h3 {
+    margin-top: 0;
+}
+
+.order-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.order-details ul li {
+    margin-bottom: 10px;
+}
+
+.total-price {
+    font-size: 24px;
+    color: #e8491d;
+    margin-top: 10px;
+}
